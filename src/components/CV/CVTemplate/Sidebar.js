@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { v4 } from "uuid";
 import Section from "../Utils/Section";
 import Subsection from "../Utils/Subsection";
-import SkillElement from "../Utils/SkillElement";
 import { FaLocationArrow } from "react-icons/fa";
 import { DiWebplatform } from "react-icons/di";
 import { AiFillPhone, AiTwotoneMail } from "react-icons/ai";
@@ -17,7 +16,15 @@ const Sidebar = (cv) => {
   ));
   const skills = cv.personalInfo.skills.map((skill) => (
     <Subsection key={v4()}>
-      <SkillElement cv={cv}>{skill}</SkillElement>
+      <SkillElement
+        style={{
+          color: cv.sidebarFontColor,
+          backgroundColor: cv.sidebarColor,
+          borderColor: cv.sidebarFontColor,
+        }}
+      >
+        {skill}
+      </SkillElement>
     </Subsection>
   ));
   return (
@@ -41,17 +48,37 @@ const Sidebar = (cv) => {
         </Subsection>
         <Subsection>
           <AiTwotoneMail style={{ marginRight: ".5rem" }} />{" "}
-          {cv.personalInfo.eMail}
+          {
+            <a
+              style={{
+                color: cv.sidebarFontColor,
+              }}
+              href={"mailto:" + cv.personalInfo.eMail}
+            >
+              {cv.personalInfo.eMail}
+            </a>
+          }
         </Subsection>
         <Subsection>
           <DiWebplatform style={{ marginRight: ".5rem" }} />{" "}
-          {cv.personalInfo.website}
+          {
+            <a
+              style={{
+                color: cv.sidebarFontColor,
+              }}
+              href={"https://" + cv.personalInfo.website}
+            >
+              {cv.personalInfo.website}
+            </a>
+          }
         </Subsection>
       </Section>
       {/* Education Section */}
       <Section title="Education">{educationEls}</Section>
       {/* Skills Section */}
-      <Section title="Skills">{skills}</Section>
+      <Section title="Skills" content="skills">
+        {skills}
+      </Section>
     </SidebarContainer>
   );
 };
@@ -73,4 +100,9 @@ const ProfileImage = styled.img`
   align-self: center;
   margin: 1rem;
   border-radius: 50%;
+`;
+const SkillElement = styled.div`
+  padding: 0.4rem 0.4rem;
+  border-radius: 5px;
+  border: 1px solid;
 `;

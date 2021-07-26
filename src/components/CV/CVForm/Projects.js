@@ -8,7 +8,7 @@ const Projects = ({
   projectsInfo,
   handleProjectsChange,
   handleDeleteSection,
-  handleAddSection,
+  addSection,
 }) => {
   let projectElements = [];
   projectsInfo.forEach((projectEl) => {
@@ -25,7 +25,12 @@ const Projects = ({
     <ProjectContainer>
       <Section title="Project">
         {projectElements}
-        <Button addBtn onClick={handleAddSection} section="projects">
+        <Button
+          addBtn
+          onClick={addSection}
+          args={["projects"]}
+          section="projects"
+        >
           Add
         </Button>
       </Section>

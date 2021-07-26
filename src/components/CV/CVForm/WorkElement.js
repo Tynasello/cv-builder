@@ -25,12 +25,7 @@ const WorkElement = ({ workEl, handleWorkChange, handleDeleteSection }) => {
         name={"desc"}
         value={workEl.desc}
       ></TextInput>
-      <Button
-        deleteBtn
-        onClick={handleDeleteSection}
-        el={workEl}
-        section="work"
-      >
+      <Button deleteBtn onClick={handleDeleteSection} args={[workEl, "work"]}>
         Remove
       </Button>
     </WorkContainer>

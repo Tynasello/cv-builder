@@ -4,7 +4,7 @@ import CVForm from "./CV/CVForm/CVForm";
 import CVTemplate from "./CV/CVTemplate/CVTemplate";
 import emptyCV from "../utils/emptyCV";
 import exampleCV from "../utils/exampleCv";
-//
+import { v4 } from "uuid";
 import { useReactToPrint } from "react-to-print";
 //
 const Body = () => {
@@ -77,7 +77,7 @@ const Body = () => {
     }));
   }
 
-  function handleDeleteSection(changedEl, section, switchTo) {
+  function handleDeleteSection(changedEl, section) {
     const newSection = [];
     cv[section].forEach((sectionEl) => {
       if (sectionEl == changedEl) {
@@ -90,15 +90,62 @@ const Body = () => {
       [section]: [...newSection],
     }));
   }
-  function handleAddSection(changedEl, section, switchTo) {
-    const newSection = cv[section];
-    newSection.push(emptyCV[section][0]);
-    setCv((prevState) => ({
-      ...prevState,
-      [section]: [...newSection],
-    }));
+  // function handleAddSection(changedEl, section, switchTo) {
+  //   const newSection = cv[section];
+  //   newSection.push(emptyCV[section][0]);
+  //   setCv((prevState) => ({
+  //     ...prevState,
+  //     [section]: [...newSection],
+  //   }));
+  // }
+  /*----------------------------------------------------------------
+   */
+  function addSection(sectionType) {
+    if (sectionType == "education") {
+      setCv((prevState) => ({
+        ...prevState,
+        education: [
+          ...prevState.education,
+          {
+            id: v4(),
+            degree: "",
+            date: "",
+          },
+        ],
+      }));
+    } else if (sectionType == "work") {
+      setCv((prevState) => ({
+        ...prevState,
+        work: [
+          ...prevState.work,
+          {
+            id: v4(),
+            position: "",
+            date: "",
+            desc: "",
+          },
+        ],
+      }));
+    } else if (sectionType == "projects") {
+      setCv((prevState) => ({
+        ...prevState,
+        projects: [
+          ...prevState.projects,
+          {
+            id: v4(),
+            projectTitle: "",
+            date: "",
+            desc: "",
+          },
+        ],
+      }));
+    }
   }
-  function switchFormStyle(changedEl, section, switchTo) {
+
+  /*
+  ----------------------------------------------------------------*/
+
+  function switchFormStyle(switchTo) {
     if (switchTo == "emptyCV") {
       setCv(() => emptyCV);
     } else {
@@ -141,7 +188,7 @@ const Body = () => {
         handleWorkChange={handleWorkChange}
         handleProjectsChange={handleProjectsChange}
         handleDeleteSection={handleDeleteSection}
-        handleAddSection={handleAddSection}
+        addSection={addSection}
         switchFormStyle={switchFormStyle}
         handelColorChange={handelColorChange}
         exportPDF={exportPDF}
@@ -158,9 +205,13 @@ const BodyContainer = styled.div`
   justify-content: center;
   background-color: ${({ theme }) => theme.colors.lightGray};
   min-width: 770px;
+
   & > * {
     width: 750px;
     margin: 3rem 1.5rem;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+      rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+      rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   }
   @media screen and (max-width: 1500px) {
     flex-direction: column;

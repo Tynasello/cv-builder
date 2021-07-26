@@ -8,7 +8,7 @@ const Work = ({
   workInfo,
   handleWorkChange,
   handleDeleteSection,
-  handleAddSection,
+  addSection,
 }) => {
   let workElements = [];
   workInfo.forEach((workEl) => {
@@ -25,7 +25,7 @@ const Work = ({
     <WorkContainer>
       <Section title="Work">
         {workElements}
-        <Button addBtn onClick={handleAddSection} section="work">
+        <Button addBtn onClick={addSection} args={["work"]} section="work">
           Add
         </Button>
       </Section>

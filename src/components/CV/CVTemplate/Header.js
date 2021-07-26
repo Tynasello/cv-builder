@@ -20,6 +20,7 @@ const Name = styled.div`
   margin: 1rem;
   font-size: 3rem;
   text-transform: uppercase;
+  font-family: ${({ theme }) => theme.colors.headerFont};
 `;
 const FirstName = styled.h3`
   font-size: 3rem;

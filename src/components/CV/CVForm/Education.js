@@ -8,7 +8,7 @@ const Education = ({
   educationInfo,
   handleEducationChange,
   handleDeleteSection,
-  handleAddSection,
+  addSection,
 }) => {
   let educationElements = [];
   educationInfo.forEach((educationEl) => {
@@ -25,7 +25,12 @@ const Education = ({
     <EducationContainer>
       <Section title="Education">
         {educationElements}
-        <Button addBtn onClick={handleAddSection} section="education">
+        <Button
+          addBtn
+          onClick={addSection}
+          args={["education"]}
+          section="education"
+        >
           Add
         </Button>
       </Section>

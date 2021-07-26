@@ -10,7 +10,7 @@ const exampleCV = {
     location: "Phoenix, AZ",
     phone: "(123) 456 7890",
     eMail: "pgonzalez@email.com",
-    website: "github.com/pgonzalez",
+    website: "github.com",
     skills: [
       "Unity",
       "C#",

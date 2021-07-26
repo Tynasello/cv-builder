@@ -14,7 +14,7 @@ const CVForm = ({
   handleWorkChange,
   handleProjectsChange,
   handleDeleteSection,
-  handleAddSection,
+  addSection,
   switchFormStyle,
   handelColorChange,
   exportPDF,
@@ -31,25 +31,25 @@ const CVForm = ({
         educationInfo={cv.education}
         handleEducationChange={handleEducationChange}
         handleDeleteSection={handleDeleteSection}
-        handleAddSection={handleAddSection}
+        addSection={addSection}
       ></Education>
       <Work
         workInfo={cv.work}
         handleWorkChange={handleWorkChange}
         handleDeleteSection={handleDeleteSection}
-        handleAddSection={handleAddSection}
+        addSection={addSection}
       ></Work>
       <Projects
         projectsInfo={cv.projects}
         handleProjectsChange={handleProjectsChange}
         handleDeleteSection={handleDeleteSection}
-        handleAddSection={handleAddSection}
+        addSection={addSection}
       ></Projects>
       <Section>
-        <Button addBtn onClick={switchFormStyle} switchTo="emptyCV">
+        <Button addBtn onClick={switchFormStyle} args={["emptyCV"]}>
           Display Empty CV
         </Button>
-        <Button addBtn onClick={switchFormStyle} switchTo="exampleCV">
+        <Button addBtn onClick={switchFormStyle} args={["exampleCV"]}>
           Display Example CV
         </Button>
         <Button addBtn onClick={exportPDF}>

@@ -1,20 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-const Button = ({
-  addBtn,
-  deleteBtn,
-  onClick,
-  el,
-  section,
-  children,
-  switchTo,
-}) => {
+const Button = ({ addBtn, deleteBtn, onClick, args = [], children }) => {
   return (
     <ButtonContainer
       addBtn={addBtn}
       deleteBtn={deleteBtn}
-      onClick={() => onClick(el, section, switchTo)}
+      onClick={() => onClick(...args)}
     >
       {children}
     </ButtonContainer>
@@ -23,6 +15,7 @@ const Button = ({
 export default Button;
 
 const ButtonContainer = styled.button`
+  cursor: pointer;
   display: block;
   width: 100%;
   margin: 1rem 0;

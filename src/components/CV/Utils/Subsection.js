@@ -20,11 +20,13 @@ const Title = styled.h3`
 `;
 const Subtitle = styled.h3`
   font-size: 0.8rem;
-  padding: 0.1rem 0;
+  font-weight: 900;
+  padding: 0.2rem 0;
+  font-family: ${({ theme }) => theme.colors.bodyFont};
+  font-style: oblique;
 `;
 const Content = styled.div`
   display: flex;
   align-items: center;
-  font-size: 0.8erem;
-  padding: 0.1rem 0;
+  font-size: 0.8rem;
 `;

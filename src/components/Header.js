@@ -1,21 +1,35 @@
 import React from "react";
 import styled from "styled-components";
+import bgImg from "../assets/images/svg.png";
 
 const Header = () => {
-  return <HeaderContainer>Create Your Own Resume</HeaderContainer>;
+  return (
+    <HeaderContainer
+      style={{
+        backgroundImage: `url(${bgImg})`,
+      }}
+    >
+      Create Your Own Resume
+    </HeaderContainer>
+  );
 };
 
 const HeaderContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: 3rem 10rem 6rem 10rem;
 
-  font-family: "Roboto", sans-serif;
-  font-size: 2.7rem;
+  font-family: "Bangers", cursive;
+  text-transform: uppercase;
+  font-size: 4rem;
 
-  color: ${({ theme }) => theme.colors.light};
-  background-color: ${({ theme }) => theme.colors.gunmetal};
+  color: #363537;
+  background-color: ${({ theme }) => theme.colors.lightGray};
+
+  background-position: "center";
+  background-size: 100vw 17rem;
+  background-repeat: "no-repeat";
 `;
 
 export default Header;

@@ -31,8 +31,7 @@ const ProjectElement = ({
       <Button
         deleteBtn
         onClick={handleDeleteSection}
-        el={projectEl}
-        section="projects"
+        args={[projectEl, "projects"]}
       >
         Remove
       </Button>
