@@ -1,7 +1,11 @@
-import React, { useState } from "react";
+/*--------------------------------------------------------------*/
+import React from "react";
 import styled from "styled-components";
+/*--------------------------------------------------------------*/
 
 const Input = ({ placeholder, onChange, name, value }) => {
+  /*--------------------------------------------------------------*/
+
   return (
     <InputContainer
       placeholder={placeholder}
@@ -11,7 +15,10 @@ const Input = ({ placeholder, onChange, name, value }) => {
     ></InputContainer>
   );
 };
+
+/*--------------------------------------------------------------*/
 export default Input;
+/*--------------------------------------------------------------*/
 
 const InputContainer = styled.input`
   background-color: white;

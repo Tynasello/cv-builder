@@ -5,30 +5,29 @@ import styled from "styled-components";
 
 /*--------------------------------------------------------------*/
 
-const Input = ({ onChange, name }) => {
+const Footer = () => {
   /*--------------------------------------------------------------*/
 
   return (
-    <InputContainer
-      type="file"
-      onChange={onChange}
-      name={name}
-      placeholder="ok"
-      accept="image/*"
-    />
+    <FooterContainer>
+      <small> Copyright &copy; 2021, Ty Nasello. All Rights Reserved</small>
+    </FooterContainer>
   );
 };
 
 /*--------------------------------------------------------------*/
-export default Input;
+export default Footer;
 /*--------------------------------------------------------------*/
 
-const InputContainer = styled.input`
-  background-color: white;
-  display: block;
-  width: 100%;
-  margin: 1rem 0;
-  padding: 0.6rem 0.3rem;
-  border-radius: 5px;
-  border: 1px solid grey;
+const FooterContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+
+  font-family: "Bangers";
+  font-size: 1.3rem;
+
+  color: #363537;
+  background-color: #00d084;
 `;

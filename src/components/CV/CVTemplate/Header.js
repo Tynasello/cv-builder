@@ -1,18 +1,37 @@
-import React, { useState } from "react";
+/*--------------------------------------------------------------*/
+
+import React from "react";
 import styled from "styled-components";
 
+/*--------------------------------------------------------------*/
+
 const Header = ({ first, last, professionalTitle, children }) => {
+  /*--------------------------------------------------------------*/
+
   return (
     <SectionContainer>
+      {/* ---------------------------------------------------------------- */}
+
       <Name>
         <FirstName>{first} </FirstName> {last}
       </Name>
+
+      {/* ---------------------------------------------------------------- */}
+
       <ProfessionalTitle>{professionalTitle}</ProfessionalTitle>
+
+      {/* ---------------------------------------------------------------- */}
+
       <Content>{children}</Content>
+
+      {/* ---------------------------------------------------------------- */}
     </SectionContainer>
   );
 };
+
+/*--------------------------------------------------------------*/
 export default Header;
+/*--------------------------------------------------------------*/
 
 const SectionContainer = styled.div``;
 const Name = styled.div`

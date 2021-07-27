@@ -1,7 +1,13 @@
-import React, { useState } from "react";
+/*--------------------------------------------------------------*/
+
+import React from "react";
 import styled from "styled-components";
 
+/*--------------------------------------------------------------*/
+
 const Button = ({ addBtn, deleteBtn, onClick, args = [], children }) => {
+  /*--------------------------------------------------------------*/
+
   return (
     <ButtonContainer
       addBtn={addBtn}
@@ -12,7 +18,10 @@ const Button = ({ addBtn, deleteBtn, onClick, args = [], children }) => {
     </ButtonContainer>
   );
 };
+
+/*--------------------------------------------------------------*/
 export default Button;
+/*--------------------------------------------------------------*/
 
 const ButtonContainer = styled.button`
   cursor: pointer;

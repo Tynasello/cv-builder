@@ -1,23 +1,35 @@
+/*--------------------------------------------------------------*/
+
 import React, { useState } from "react";
 import styled from "styled-components";
-import { TwitterPicker } from "react-color";
+import { BlockPicker } from "react-color";
 
-const ColorPicker = ({ cv, handelColorChange, type }) => {
-  const [color, setColor] = useState("");
+/*--------------------------------------------------------------*/
+
+const ColorPicker = ({ initialColor, changeTemplateColor, type }) => {
+  const [color, setColor] = useState(initialColor);
+
+  /*--------------------------------------------------------------*/
 
   return (
     <ColorPickerContainer>
-      <TwitterPicker
+      {/* ---------------------------------------------------------------- */}
+
+      <BlockPicker
         color={color}
         onChangeComplete={(color) => {
           setColor(color.hex);
-          handelColorChange(color.hex, type);
+          changeTemplateColor(color.hex, type);
         }}
       />
+
+      {/* ---------------------------------------------------------------- */}
     </ColorPickerContainer>
   );
 };
 
+/*--------------------------------------------------------------*/
 export default ColorPicker;
+/*--------------------------------------------------------------*/
 
 const ColorPickerContainer = styled.div``;

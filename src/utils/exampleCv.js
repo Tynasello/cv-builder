@@ -1,5 +1,9 @@
+/*--------------------------------------------------------------*/
+
 import { v4 } from "uuid";
 import exampleProfilePic from "../assets/images/example-profile-pic.jpeg";
+
+/*--------------------------------------------------------------*/
 
 const exampleCV = {
   personalInfo: {
@@ -75,4 +79,6 @@ const exampleCV = {
   sidebarFontColor: "#ECF0F1",
 };
 
+/*--------------------------------------------------------------*/
 export default exampleCV;
+/*--------------------------------------------------------------*/

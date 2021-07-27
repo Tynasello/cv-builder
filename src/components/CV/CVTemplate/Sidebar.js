@@ -1,19 +1,35 @@
-import React, { useState } from "react";
+/*--------------------------------------------------------------*/
+
+import React from "react";
 import styled from "styled-components";
 import { v4 } from "uuid";
+
+/*--------------------------------------------------------------*/
+
 import Section from "../Utils/Section";
 import Subsection from "../Utils/Subsection";
+
+/*--------------------------------------------------------------*/
+
 import { FaLocationArrow } from "react-icons/fa";
 import { DiWebplatform } from "react-icons/di";
 import { AiFillPhone, AiTwotoneMail } from "react-icons/ai";
 
+/*--------------------------------------------------------------*/
+
 const Sidebar = (cv) => {
   cv = cv.cv;
+
+  /*--------------------------------------------------------------*/
+
   const educationEls = cv.education.map((el) => (
     <Subsection key={el.id} title={el.degree} subtitle={el.date}>
       {el.school}
     </Subsection>
   ));
+
+  /*--------------------------------------------------------------*/
+
   const skills = cv.personalInfo.skills.map((skill) => (
     <Subsection key={v4()}>
       <SkillElement
@@ -27,25 +43,39 @@ const Sidebar = (cv) => {
       </SkillElement>
     </Subsection>
   ));
+
+  /*--------------------------------------------------------------*/
+
   return (
     <SidebarContainer
       style={{ backgroundColor: cv.sidebarColor, color: cv.sidebarFontColor }}
     >
-      {/* Profile Image */}
+      {/* ---------------------------------------------------------------- */}
+
       <ProfileImage
         src={cv.personalInfo.profileImg}
         alt="Default profile picture"
       ></ProfileImage>
-      {/* Contact Section */}
+
+      {/* ---------------------------------------------------------------- */}
+
       <Section title="Contact">
+        {/* Location */}
+
         <Subsection>
           <FaLocationArrow style={{ marginRight: ".5rem" }} />{" "}
           {cv.personalInfo.location}
         </Subsection>
+
+        {/* Phone number */}
+
         <Subsection>
           <AiFillPhone style={{ marginRight: ".5rem" }} />{" "}
           {cv.personalInfo.phone}
         </Subsection>
+
+        {/* E-mail link */}
+
         <Subsection>
           <AiTwotoneMail style={{ marginRight: ".5rem" }} />{" "}
           {
@@ -59,6 +89,9 @@ const Sidebar = (cv) => {
             </a>
           }
         </Subsection>
+
+        {/* Website Link */}
+
         <Subsection>
           <DiWebplatform style={{ marginRight: ".5rem" }} />{" "}
           {
@@ -73,16 +106,25 @@ const Sidebar = (cv) => {
           }
         </Subsection>
       </Section>
-      {/* Education Section */}
+
+      {/* ---------------------------------------------------------------- */}
+
       <Section title="Education">{educationEls}</Section>
-      {/* Skills Section */}
+
+      {/* ---------------------------------------------------------------- */}
+
       <Section title="Skills" content="skills">
         {skills}
       </Section>
+
+      {/* ---------------------------------------------------------------- */}
     </SidebarContainer>
   );
 };
+
+/*--------------------------------------------------------------*/
 export default Sidebar;
+/*--------------------------------------------------------------*/
 
 const SidebarContainer = styled.div`
   display: flex;

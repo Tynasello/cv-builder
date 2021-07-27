@@ -1,50 +1,74 @@
-import React, { useState } from "react";
+/*--------------------------------------------------------------*/
+
+import React from "react";
 import styled from "styled-components";
+
+/*--------------------------------------------------------------*/
+
 import PersonalInfo from "./PersonalInfo";
-import Education from "./Education";
-import Work from "./Work";
-import Projects from "./Projects";
-import Button from "../Utils/Button";
 import Section from "../Utils/Section";
+import FormSection from "./FormSection";
+import Button from "../Utils/Button";
 import ColorPicker from "../Utils/ColorPicker";
+
+/*--------------------------------------------------------------*/
+
 const CVForm = ({
   cv,
-  handlePersonalChange,
-  handleEducationChange,
-  handleWorkChange,
-  handleProjectsChange,
-  handleDeleteSection,
+  personalInfoChange,
+  sectionChange,
+  deleteSection,
   addSection,
   switchFormStyle,
-  handelColorChange,
+  changeTemplateColor,
   exportPDF,
   handleFileInput,
 }) => {
+  /*--------------------------------------------------------------*/
+
   return (
     <CVFormContainer>
+      {/* ---------------------------------------------------------------- */}
+
       <PersonalInfo
         personalInfo={cv.personalInfo}
-        handlePersonalChange={handlePersonalChange}
+        personalInfoChange={personalInfoChange}
         handleFileInput={handleFileInput}
       ></PersonalInfo>
-      <Education
-        educationInfo={cv.education}
-        handleEducationChange={handleEducationChange}
-        handleDeleteSection={handleDeleteSection}
+
+      {/* ---------------------------------------------------------------- */}
+
+      <FormSection
+        cv={cv}
+        formSectionInfo={cv.education}
+        sectionChange={sectionChange}
+        deleteSection={deleteSection}
         addSection={addSection}
-      ></Education>
-      <Work
-        workInfo={cv.work}
-        handleWorkChange={handleWorkChange}
-        handleDeleteSection={handleDeleteSection}
+      ></FormSection>
+
+      {/* ---------------------------------------------------------------- */}
+
+      <FormSection
+        cv={cv}
+        formSectionInfo={cv.work}
+        sectionChange={sectionChange}
+        deleteSection={deleteSection}
         addSection={addSection}
-      ></Work>
-      <Projects
-        projectsInfo={cv.projects}
-        handleProjectsChange={handleProjectsChange}
-        handleDeleteSection={handleDeleteSection}
+      ></FormSection>
+
+      {/* ---------------------------------------------------------------- */}
+
+      <FormSection
+        cv={cv}
+        formSectionInfo={cv.projects}
+        sectionChange={sectionChange}
+        deleteSection={deleteSection}
         addSection={addSection}
-      ></Projects>
+      ></FormSection>
+
+      {/* ---------------------------------------------------------------- */}
+      {/* Section for main buttons -> switching between example and empty CV, and exporting as PDF */}
+
       <Section>
         <Button addBtn onClick={switchFormStyle} args={["emptyCV"]}>
           Display Empty CV
@@ -56,45 +80,67 @@ const CVForm = ({
           Export as PDF
         </Button>
       </Section>
+
+      {/* ---------------------------------------------------------------- */}
+      {/* Section at bottom of form for changing CV colors. */}
+
       <Section title="Color Picker"></Section>
       <ColorPickerSection>
         <ColorPickerItem>
           <h3>Sidebar Color</h3>
           <br />
           <ColorPicker
-            handelColorChange={handelColorChange}
+            initialColor={cv.sidebarColor}
+            changeTemplateColor={changeTemplateColor}
             type="sidebarColor"
           ></ColorPicker>
         </ColorPickerItem>
+
+        {/* ---------------------------------------------------------------- */}
+
         <ColorPickerItem>
           <h3>Font Color (Main)</h3>
           <br />
           <ColorPicker
-            handelColorChange={handelColorChange}
+            initialColor={cv.mainFontColor}
+            changeTemplateColor={changeTemplateColor}
             type="mainFontColor"
           ></ColorPicker>
         </ColorPickerItem>
+
+        {/* ---------------------------------------------------------------- */}
+
         <ColorPickerItem>
           <h3>Font Color (Sidebar)</h3>
           <br />
           <ColorPicker
-            cv={cv}
-            handelColorChange={handelColorChange}
+            initialColor={cv.sidebarFontColor}
+            changeTemplateColor={changeTemplateColor}
             type="sidebarFontColor"
           ></ColorPicker>
         </ColorPickerItem>
       </ColorPickerSection>
+
+      {/* ---------------------------------------------------------------- */}
     </CVFormContainer>
   );
 };
+
+/*--------------------------------------------------------------*/
 export default CVForm;
+/*--------------------------------------------------------------*/
 
 const CVFormContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.light};
   font-family: Roboto, sans-serif;
 `;
 const ColorPickerSection = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   font-size: 0.8rem;
+  text-align: center;
+  padding-bottom: 4rem;
 `;
 const ColorPickerItem = styled.div`
   padding: 1rem 2rem;

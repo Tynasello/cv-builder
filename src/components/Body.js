@@ -1,18 +1,33 @@
+/*--------------------------------------------------------------*/
+
 import React, { useState, useRef } from "react";
 import styled from "styled-components";
-import CVForm from "./CV/CVForm/CVForm";
-import CVTemplate from "./CV/CVTemplate/CVTemplate";
-import emptyCV from "../utils/emptyCV";
-import exampleCV from "../utils/exampleCv";
 import { v4 } from "uuid";
 import { useReactToPrint } from "react-to-print";
-//
+
+/*--------------------------------------------------------------*/
+
+import CVForm from "./CV/CVForm/CVForm";
+import CVTemplate from "./CV/CVTemplate/CVTemplate";
+
+/*--------------------------------------------------------------*/
+
+import emptyCV from "../utils/emptyCV";
+import exampleCV from "../utils/exampleCv";
+
+/*----------------------------------------------------------------
+----------------------------------------------------------------*/
+
 const Body = () => {
+  // CV object holds all information for the CV
   const [cv, setCv] = useState(exampleCV);
 
-  //
+  /*----------------------------------------------------------------
 
-  function handlePersonalChange(e) {
+  Changing Value in Personal Info Section Element
+
+  ----------------------------------------------------------------*/
+  function personalInfoChange(e) {
     let { name, value } = e.target;
     if (name == "skills") {
       value = value.split(",");
@@ -26,58 +41,32 @@ const Body = () => {
     }));
   }
 
-  //
+  /*----------------------------------------------------------------
 
-  function handleEducationChange(e, id) {
+  Changing Value in Section Element
+
+  ----------------------------------------------------------------*/
+  function sectionChange(e, sectionType, id) {
     const { name, value } = e.target;
 
-    const newEducation = cv.education.map((educationEl) => {
-      if (educationEl.id == id) {
-        return { ...educationEl, [name]: value };
+    const newSection = cv[sectionType].map((el) => {
+      if (el.id == id) {
+        return { ...el, [name]: value };
       }
-      return educationEl;
+      return el;
     });
     setCv((prevState) => ({
       ...prevState,
-      education: [...newEducation],
+      [sectionType]: [...newSection],
     }));
   }
 
-  //
+  /*----------------------------------------------------------------
 
-  function handleWorkChange(e, id) {
-    const { name, value } = e.target;
+  Deleting Section Element
 
-    const newWork = cv.work.map((workEl) => {
-      if (workEl.id == id) {
-        return { ...workEl, [name]: value };
-      }
-      return workEl;
-    });
-    setCv((prevState) => ({
-      ...prevState,
-      work: [...newWork],
-    }));
-  }
-
-  //
-
-  function handleProjectsChange(e, id) {
-    const { name, value } = e.target;
-
-    const newProject = cv.projects.map((projectEl) => {
-      if (projectEl.id == id) {
-        return { ...projectEl, [name]: value };
-      }
-      return projectEl;
-    });
-    setCv((prevState) => ({
-      ...prevState,
-      projects: [...newProject],
-    }));
-  }
-
-  function handleDeleteSection(changedEl, section) {
+  ----------------------------------------------------------------*/
+  function deleteSection(changedEl, section) {
     const newSection = [];
     cv[section].forEach((sectionEl) => {
       if (sectionEl == changedEl) {
@@ -90,16 +79,12 @@ const Body = () => {
       [section]: [...newSection],
     }));
   }
-  // function handleAddSection(changedEl, section, switchTo) {
-  //   const newSection = cv[section];
-  //   newSection.push(emptyCV[section][0]);
-  //   setCv((prevState) => ({
-  //     ...prevState,
-  //     [section]: [...newSection],
-  //   }));
-  // }
+
   /*----------------------------------------------------------------
-   */
+
+  Adding Section Element
+
+  ----------------------------------------------------------------*/
   function addSection(sectionType) {
     if (sectionType == "education") {
       setCv((prevState) => ({
@@ -142,7 +127,7 @@ const Body = () => {
     }
   }
 
-  /*
+  /*----------------------------------------------------------------
   ----------------------------------------------------------------*/
 
   function switchFormStyle(switchTo) {
@@ -152,17 +137,27 @@ const Body = () => {
       setCv(() => exampleCV);
     }
   }
-  function handelColorChange(color, type) {
+  function changeTemplateColor(color, type) {
     setCv((prevState) => ({
       ...prevState,
       [type]: color,
     }));
   }
 
+  /*----------------------------------------------------------------
+
+  Exporting as PDF
+
+  ----------------------------------------------------------------*/
   const ref = useRef();
 
   const exportPDF = useReactToPrint({ content: () => ref.current });
 
+  /*----------------------------------------------------------------
+
+  Handling File Input ( For Uploading Profile Image )
+
+  ----------------------------------------------------------------*/
   function handleFileInput(e) {
     const profileImg = e.target.files[0];
     if (!profileImg) return;
@@ -179,26 +174,37 @@ const Body = () => {
     fileReader.readAsDataURL(profileImg);
   }
 
+  /*----------------------------------------------------------------
+  ----------------------------------------------------------------*/
+
   return (
     <BodyContainer>
+      {/* ---------------------------------------------------------------- */}
+
       <CVForm
         cv={cv}
-        handlePersonalChange={handlePersonalChange}
-        handleEducationChange={handleEducationChange}
-        handleWorkChange={handleWorkChange}
-        handleProjectsChange={handleProjectsChange}
-        handleDeleteSection={handleDeleteSection}
+        personalInfoChange={personalInfoChange}
+        sectionChange={sectionChange}
+        deleteSection={deleteSection}
         addSection={addSection}
         switchFormStyle={switchFormStyle}
-        handelColorChange={handelColorChange}
+        changeTemplateColor={changeTemplateColor}
         exportPDF={exportPDF}
         handleFileInput={handleFileInput}
       ></CVForm>
+
+      {/* ---------------------------------------------------------------- */}
+
       <CVTemplate cv={cv} ref={ref}></CVTemplate>
+
+      {/* ---------------------------------------------------------------- */}
     </BodyContainer>
   );
 };
+
+/*--------------------------------------------------------------*/
 export default Body;
+/*--------------------------------------------------------------*/
 
 const BodyContainer = styled.div`
   display: flex;

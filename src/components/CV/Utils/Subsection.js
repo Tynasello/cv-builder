@@ -1,7 +1,13 @@
-import React, { useState } from "react";
+/*--------------------------------------------------------------*/
+
+import React from "react";
 import styled from "styled-components";
 
+/*--------------------------------------------------------------*/
+
 const Subsection = ({ title, subtitle, children }) => {
+  /*--------------------------------------------------------------*/
+
   return (
     <SubsectionContainer>
       <Title>{title}</Title>
@@ -10,7 +16,10 @@ const Subsection = ({ title, subtitle, children }) => {
     </SubsectionContainer>
   );
 };
+
+/*--------------------------------------------------------------*/
 export default Subsection;
+/*--------------------------------------------------------------*/
 
 const SubsectionContainer = styled.div`
   padding-bottom: 0.8rem;

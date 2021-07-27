@@ -1,8 +1,17 @@
+/*--------------------------------------------------------------*/
+
 import React from "react";
 import styled from "styled-components";
+
+/*--------------------------------------------------------------*/
+
 import bgImg from "../assets/images/svg.png";
 
+/*--------------------------------------------------------------*/
+
 const Header = () => {
+  /*--------------------------------------------------------------*/
+
   return (
     <HeaderContainer
       style={{
@@ -13,6 +22,10 @@ const Header = () => {
     </HeaderContainer>
   );
 };
+
+/*--------------------------------------------------------------*/
+export default Header;
+/*--------------------------------------------------------------*/
 
 const HeaderContainer = styled.div`
   display: flex;
@@ -31,5 +44,3 @@ const HeaderContainer = styled.div`
   background-size: 100vw 17rem;
   background-repeat: "no-repeat";
 `;
-
-export default Header;

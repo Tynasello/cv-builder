@@ -1,7 +1,11 @@
 import React, { useState } from "react";
+/*--------------------------------------------------------------*/
 import styled, { css } from "styled-components";
+/*--------------------------------------------------------------*/
 
 const Section = ({ title, content, children }) => {
+  /*--------------------------------------------------------------*/
+
   return (
     <SectionContainer>
       <Header>{title}</Header>
@@ -9,7 +13,10 @@ const Section = ({ title, content, children }) => {
     </SectionContainer>
   );
 };
+
+/*--------------------------------------------------------------*/
 export default Section;
+/*--------------------------------------------------------------*/
 
 const SectionContainer = styled.div``;
 const Header = styled.h3`

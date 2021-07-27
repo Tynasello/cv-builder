@@ -1,5 +1,14 @@
-import React, { useState, useEffect } from "react";
+/*--------------------------------------------------------------*/
+
+import React, { useEffect } from "react";
 import styled from "styled-components";
+
+/*--------------------------------------------------------------*/
+
+/*----------------------------------------------------------------
+Automatically updates height of textarea to fit all content
+----------------------------------------------------------------*/
+
 function autoGrow(elements) {
   elements.forEach((el) => {
     el.style.height = "0.8rem";
@@ -7,11 +16,18 @@ function autoGrow(elements) {
   });
 }
 
-const TextInput = ({ placeholder, onChange, name, value, textInputId }) => {
+/*--------------------------------------------------------------*/
+
+const TextInput = ({ placeholder, onChange, name, value }) => {
+  /*--------------------------------------------------------------*/
+
   useEffect(() => {
     const elements = document.querySelectorAll(TextInputContainer);
     autoGrow(elements);
   });
+
+  /*--------------------------------------------------------------*/
+
   return (
     <TextInputContainer
       placeholder={placeholder}
@@ -21,7 +37,10 @@ const TextInput = ({ placeholder, onChange, name, value, textInputId }) => {
     ></TextInputContainer>
   );
 };
+
+/*--------------------------------------------------------------*/
 export default TextInput;
+/*--------------------------------------------------------------*/
 
 const TextInputContainer = styled.textarea`
   font-family: Robot, sans-serif;
@@ -34,4 +53,6 @@ const TextInputContainer = styled.textarea`
   border-radius: 5px;
   border: 1px solid grey;
   height: auto;
+
+  overflow: hidden;
 `;
