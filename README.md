@@ -1,70 +1,76 @@
-# Getting Started with Create React App
+# CV Builder
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React web application to create your own CV / resume.
 
-## Available Scripts
+## Overview
 
-In the project directory, you can run:
+![Website Demo](./src/assets/images/website-demo.png)
 
-### `npm start`
+### How to use
 
-Runs the app in the development mode.\
+To use this application fill out the form on the left hand side of the page with personal values such as your name, profile picture, work experience, etc. The CV on the right hand side of the page will synchronously update as you type.
+
+Close to the bottom of the form you can find two buttons labeled 'Display Empty CV' and 'Display Example CV' which clear the CV and display an example CV, respectively.
+
+Main sections of the CV include a personal description, contact section, education section, skills education, work experience section, and projects section.
+
+To add and remove subsections of a section, press the green 'add' and red 'remove' buttons respectively.
+
+When adding to the skills section, seperate each infividual skills by a comma like so: Unity,C#,JavaScript. This ensures the addition of the skill element styling to each skill.
+
+### Exporting CV as PDF
+
+To save your own CV as a PDF, use the 'Export as PDF' button near the bottom of the form. The react-to-print package was leveraged to allow the exportation of the CV component to PDF.
+
+### Choosing CV Colors
+
+There are three color pickers at the bottom of the CV form which allow you to change the CV's sidebar background color, sidebar font color, and main font color. The color pickers are BlockPicker components from the react-color package.
+
+## Installation
+
+To Work on this project:
+
+Clone project:
+
+```bash
+git clone https://github.com/Tynasello/cv-builder
+```
+
+Change into project directory:
+
+```bash
+cd cv-builder
+```
+
+Install required dependencies:
+
+```bash
+npm install
+```
+
+To run the app in the development mode:
+
+```bash
+npm run start
+```
+
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+To build the app for production to the build folder:
 
-### `npm test`
+```bash
+npm run build
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Built With
 
-### `npm run build`
+- [ReactJS](https://reactjs.org/)
+- [styled-components](https://styled-components.com/)
+- [react-color](https://casesandberg.github.io/react-color/)
+- [react-to-print](https://www.npmjs.com/package/react-to-print)
+- [uuid](https://www.npmjs.com/package/uuid)
+- [react-icons](https://react-icons.github.io/react-icons/)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Acknowledgments
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Inspiration for this project was found while following the tutorials on https://www.theodinproject.com/dashboard and advancing to the https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript/lessons/cv-application section
