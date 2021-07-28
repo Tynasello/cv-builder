@@ -38,15 +38,14 @@ export default CVTemplate;
 const CVTemplateContainer = styled.div`
   position: sticky;
   top: 0.5rem;
+  overflow: hidden;
+
+  display: grid;
+  grid-template-columns: 1fr 2.4fr;
 
   height: 1056px;
   max-height: 1056px;
 
   background-color: ${({ theme }) => theme.colors.light};
-  overflow: hidden;
-
   font-family: Roboto, sans-serif;
-
-  display: grid;
-  grid-template-columns: 1fr 2.4fr;
 `;

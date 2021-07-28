@@ -20,7 +20,7 @@ function autoGrow(elements) {
 
 const TextInput = ({ placeholder, onChange, name, value }) => {
   /*--------------------------------------------------------------*/
-
+  // Effect hook to automatically adjust height of textarea as its content updates
   useEffect(() => {
     const elements = document.querySelectorAll(TextInputContainer);
     autoGrow(elements);
@@ -43,16 +43,18 @@ export default TextInput;
 /*--------------------------------------------------------------*/
 
 const TextInputContainer = styled.textarea`
-  font-family: Robot, sans-serif;
-
   display: block;
   width: 100%;
   max-width: 100%;
+
   margin: 1rem 0;
   padding: 0.6rem 0.3rem;
+
+  resize: none;
+  overflow: hidden;
+
   border-radius: 5px;
   border: 1px solid grey;
-  height: auto;
 
-  overflow: hidden;
+  font-family: ${({ theme }) => theme.fonts.bodyFont};
 `;

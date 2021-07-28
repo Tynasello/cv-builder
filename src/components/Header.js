@@ -28,19 +28,20 @@ export default Header;
 /*--------------------------------------------------------------*/
 
 const HeaderContainer = styled.div`
+  height: 180px;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 3rem 10rem 6rem 10rem;
 
-  font-family: "Bangers", cursive;
+  font-family: ${({ theme }) => theme.fonts.mainHeaderFont};
   text-transform: uppercase;
   font-size: 4rem;
 
-  color: #363537;
+  color: ${({ theme }) => theme.colors.darkGray};
   background-color: ${({ theme }) => theme.colors.lightGray};
 
   background-position: "center";
-  background-size: 100vw 17rem;
+  background-size: 100vw 26vh;
   background-repeat: "no-repeat";
 `;

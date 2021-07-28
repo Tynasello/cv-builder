@@ -129,22 +129,24 @@ export default Sidebar;
 const SidebarContainer = styled.div`
   display: flex;
   flex-direction: column;
+
   height: 1056px;
   max-height: 1056px;
+  padding: 1rem;
 
   color: ${({ theme }) => theme.colors.light};
-
-  padding: 1rem;
 `;
 const ProfileImage = styled.img`
+  align-self: center;
   width: 150px;
   height: 150px;
-  align-self: center;
+
   margin: 1rem;
   border-radius: 50%;
 `;
 const SkillElement = styled.div`
   padding: 0.4rem 0.4rem;
+
   border-radius: 5px;
   border: 1px solid;
 `;

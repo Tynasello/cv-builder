@@ -15,7 +15,6 @@ import ColorPicker from "../Utils/ColorPicker";
 
 const CVForm = ({
   cv,
-  personalInfoChange,
   sectionChange,
   deleteSection,
   addSection,
@@ -32,7 +31,7 @@ const CVForm = ({
 
       <PersonalInfo
         personalInfo={cv.personalInfo}
-        personalInfoChange={personalInfoChange}
+        sectionChange={sectionChange}
         handleFileInput={handleFileInput}
       ></PersonalInfo>
 
@@ -138,9 +137,10 @@ const ColorPickerSection = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  padding-bottom: 4rem;
+
   font-size: 0.8rem;
   text-align: center;
-  padding-bottom: 4rem;
 `;
 const ColorPickerItem = styled.div`
   padding: 1rem 2rem;

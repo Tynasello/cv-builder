@@ -37,18 +37,21 @@ const SectionContainer = styled.div``;
 const Name = styled.div`
   display: flex;
   margin: 1rem;
+
+  font-family: ${({ theme }) => theme.colors.headerFont};
   font-size: 3rem;
   text-transform: uppercase;
-  font-family: ${({ theme }) => theme.colors.headerFont};
 `;
 const FirstName = styled.h3`
+  margin-right: 0.5rem;
+
   font-size: 3rem;
   font-weight: bold;
-  margin-right: 0.5rem;
 `;
 const ProfessionalTitle = styled.h3``;
 
 const Content = styled.div`
   margin: 1rem;
+
   font-size: 0.8rem;
 `;

@@ -25,9 +25,9 @@ const FooterContainer = styled.div`
   justify-content: center;
   padding: 1.5rem;
 
-  font-family: "Bangers";
+  font-family: ${({ theme }) => theme.fonts.mainHeaderFont};
   font-size: 1.3rem;
 
-  color: #363537;
-  background-color: #00d084;
+  color: ${({ theme }) => theme.colors.darkGray};
+  background-color: ${({ theme }) => theme.colors.mainColor};
 `;

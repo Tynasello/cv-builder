@@ -12,11 +12,7 @@ import FileInput from "../Utils/FileInput";
 
 /*--------------------------------------------------------------*/
 
-const PersonalInfo = ({
-  personalInfo,
-  personalInfoChange,
-  handleFileInput,
-}) => {
+const PersonalInfo = ({ personalInfo, sectionChange, handleFileInput }) => {
   /*--------------------------------------------------------------*/
 
   return (
@@ -26,7 +22,7 @@ const PersonalInfo = ({
       <Section title="Personal Information">
         <Input
           placeholder="First Name"
-          onChange={(e) => personalInfoChange(e)}
+          onChange={(e) => sectionChange(e)}
           name={"first"}
           value={personalInfo.first}
         ></Input>
@@ -35,7 +31,7 @@ const PersonalInfo = ({
 
         <Input
           placeholder="Last Name"
-          onChange={(e) => personalInfoChange(e)}
+          onChange={(e) => sectionChange(e)}
           name={"last"}
           value={personalInfo.last}
         ></Input>
@@ -54,7 +50,7 @@ const PersonalInfo = ({
 
         <TextInput
           placeholder="Description"
-          onChange={(e) => personalInfoChange(e)}
+          onChange={(e) => sectionChange(e)}
           name={"desc"}
           value={personalInfo.desc}
         ></TextInput>
@@ -63,7 +59,7 @@ const PersonalInfo = ({
 
         <Input
           placeholder="Location"
-          onChange={(e) => personalInfoChange(e)}
+          onChange={(e) => sectionChange(e)}
           name={"location"}
           value={personalInfo.location}
         ></Input>
@@ -72,7 +68,7 @@ const PersonalInfo = ({
 
         <Input
           placeholder="Phone Number"
-          onChange={(e) => personalInfoChange(e)}
+          onChange={(e) => sectionChange(e)}
           name={"phone"}
           value={personalInfo.phone}
         ></Input>
@@ -81,7 +77,7 @@ const PersonalInfo = ({
 
         <Input
           placeholder="E-Mail"
-          onChange={(e) => personalInfoChange(e)}
+          onChange={(e) => sectionChange(e)}
           name={"eMail"}
           value={personalInfo.eMail}
         ></Input>
@@ -90,7 +86,7 @@ const PersonalInfo = ({
 
         <Input
           placeholder="Website"
-          onChange={(e) => personalInfoChange(e)}
+          onChange={(e) => sectionChange(e)}
           name={"website"}
           value={personalInfo.website}
         ></Input>
@@ -99,7 +95,7 @@ const PersonalInfo = ({
 
         <Input
           placeholder="Skills (seperate each skill by a comma)"
-          onChange={(e) => personalInfoChange(e)}
+          onChange={(e) => sectionChange(e)}
           name={"skills"}
           value={personalInfo.skills}
         ></Input>

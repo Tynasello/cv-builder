@@ -8,9 +8,12 @@ const Theme = {
     green: "#28B463",
     red: "#E74C3C",
 
-    mainColor: "#EE6C4D",
+    darkGray: "#363537",
+    mainColor: "#00d084",
     gunmetal: "#293241",
-
+  },
+  fonts: {
+    mainHeaderFont: "'Bangers', cursive",
     headerFont: "'Poppins', sans-serif;",
     bodyFont: "'Open Sans', sans-serif;",
   },

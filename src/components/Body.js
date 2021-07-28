@@ -15,38 +15,40 @@ import CVTemplate from "./CV/CVTemplate/CVTemplate";
 import emptyCV from "../utils/emptyCV";
 import exampleCV from "../utils/exampleCv";
 
-/*----------------------------------------------------------------
-----------------------------------------------------------------*/
+/*--------------------------------------------------------------*/
 
 const Body = () => {
   // CV object holds all information for the CV
   const [cv, setCv] = useState(exampleCV);
 
-  /*----------------------------------------------------------------
+  /*--------------------------------------------------------------*/
 
-  Changing Value in Personal Info Section Element
-
-  ----------------------------------------------------------------*/
-  function personalInfoChange(e) {
-    let { name, value } = e.target;
-    if (name == "skills") {
-      value = value.split(",");
-    }
-    setCv((prevState) => ({
-      ...prevState,
-      personalInfo: {
-        ...prevState.personalInfo,
-        [name]: value,
-      },
-    }));
-  }
-
-  /*----------------------------------------------------------------
-
-  Changing Value in Section Element
-
-  ----------------------------------------------------------------*/
   function sectionChange(e, sectionType, id) {
+    /*----------------------------------------------------------------
+
+    Update personalInfo section of CV at name with new value
+
+    ----------------------------------------------------------------*/
+    if (!sectionType) {
+      let { name, value } = e.target;
+      if (name == "skills") {
+        value = value.split(",");
+      }
+      setCv((prevState) => ({
+        ...prevState,
+        personalInfo: {
+          ...prevState.personalInfo,
+          [name]: value,
+        },
+      }));
+      return;
+    }
+
+    /*----------------------------------------------------------------
+
+    Changing Value in Section Element
+
+    ----------------------------------------------------------------*/
     const { name, value } = e.target;
 
     const newSection = cv[sectionType].map((el) => {
@@ -128,6 +130,9 @@ const Body = () => {
   }
 
   /*----------------------------------------------------------------
+
+  Displaying Empty and Example CVs to CVTemplate
+
   ----------------------------------------------------------------*/
 
   function switchFormStyle(switchTo) {
@@ -137,6 +142,13 @@ const Body = () => {
       setCv(() => exampleCV);
     }
   }
+
+  /*----------------------------------------------------------------
+
+  Changing Colors on CVTemplate
+
+  ----------------------------------------------------------------*/
+
   function changeTemplateColor(color, type) {
     setCv((prevState) => ({
       ...prevState,
@@ -149,6 +161,7 @@ const Body = () => {
   Exporting as PDF
 
   ----------------------------------------------------------------*/
+
   const ref = useRef();
 
   const exportPDF = useReactToPrint({ content: () => ref.current });
@@ -158,6 +171,7 @@ const Body = () => {
   Handling File Input ( For Uploading Profile Image )
 
   ----------------------------------------------------------------*/
+
   function handleFileInput(e) {
     const profileImg = e.target.files[0];
     if (!profileImg) return;
@@ -183,7 +197,6 @@ const Body = () => {
 
       <CVForm
         cv={cv}
-        personalInfoChange={personalInfoChange}
         sectionChange={sectionChange}
         deleteSection={deleteSection}
         addSection={addSection}

@@ -28,14 +28,16 @@ const Title = styled.h3`
   font-size: 0.9rem;
 `;
 const Subtitle = styled.h3`
-  font-size: 0.8rem;
-  font-weight: 900;
   padding: 0.2rem 0;
-  font-family: ${({ theme }) => theme.colors.bodyFont};
+
+  font-family: ${({ theme }) => theme.fonts.bodyFont};
+  font-size: 0.8rem;
   font-style: oblique;
+  font-weight: 900;
 `;
 const Content = styled.div`
   display: flex;
   align-items: center;
+
   font-size: 0.8rem;
 `;
