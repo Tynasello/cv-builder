@@ -19,7 +19,7 @@ import exampleCV from "../utils/exampleCv";
 
 const Body = () => {
   // CV object holds all information for the CV
-  const [cv, setCv] = useState(exampleCV);
+  const [cv, setCv] = useState(emptyCV);
 
   /*--------------------------------------------------------------*/
 
