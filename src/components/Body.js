@@ -31,7 +31,7 @@ const Body = () => {
     ----------------------------------------------------------------*/
     if (!sectionType) {
       let { name, value } = e.target;
-      if (name == "skills") {
+      if (name === "skills") {
         value = value.split(",");
       }
       setCv((prevState) => ({
@@ -52,7 +52,7 @@ const Body = () => {
     const { name, value } = e.target;
 
     const newSection = cv[sectionType].map((el) => {
-      if (el.id == id) {
+      if (el.id === id) {
         return { ...el, [name]: value };
       }
       return el;
@@ -71,7 +71,7 @@ const Body = () => {
   function deleteSection(changedEl, section) {
     const newSection = [];
     cv[section].forEach((sectionEl) => {
-      if (sectionEl == changedEl) {
+      if (sectionEl === changedEl) {
         return;
       }
       newSection.push(sectionEl);
@@ -88,7 +88,7 @@ const Body = () => {
 
   ----------------------------------------------------------------*/
   function addSection(sectionType) {
-    if (sectionType == "education") {
+    if (sectionType === "education") {
       setCv((prevState) => ({
         ...prevState,
         education: [
@@ -100,7 +100,7 @@ const Body = () => {
           },
         ],
       }));
-    } else if (sectionType == "work") {
+    } else if (sectionType === "work") {
       setCv((prevState) => ({
         ...prevState,
         work: [
@@ -113,7 +113,7 @@ const Body = () => {
           },
         ],
       }));
-    } else if (sectionType == "projects") {
+    } else if (sectionType === "projects") {
       setCv((prevState) => ({
         ...prevState,
         projects: [
@@ -136,7 +136,7 @@ const Body = () => {
   ----------------------------------------------------------------*/
 
   function switchFormStyle(switchTo) {
-    if (switchTo == "emptyCV") {
+    if (switchTo === "emptyCV") {
       setCv(() => emptyCV);
     } else {
       setCv(() => exampleCV);

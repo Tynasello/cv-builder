@@ -24,15 +24,15 @@ const FormSection = ({
   let args = [];
   let section = "";
 
-  if (formSectionInfo == cv.projects) {
+  if (formSectionInfo === cv.projects) {
     title = "Project";
     args = ["projects"];
     section = "projects";
-  } else if (formSectionInfo == cv.work) {
+  } else if (formSectionInfo === cv.work) {
     title = "Work Experience";
     args = ["work"];
     section = "work";
-  } else if (formSectionInfo == cv.education) {
+  } else if (formSectionInfo === cv.education) {
     title = "Education";
     args = ["education"];
     section = "education";

@@ -22,13 +22,13 @@ const FormSectionElement = ({
   let placeHolders = [];
   let nameValues = [];
 
-  if (sectionType == "projects") {
+  if (sectionType === "projects") {
     placeHolders = ["Project Title", "Date", "School"];
     nameValues = ["projectTitle", "date", "desc"];
-  } else if (sectionType == "work") {
+  } else if (sectionType === "work") {
     placeHolders = ["Company / Position", "Date", "Description"];
     nameValues = ["position", "date", "desc"];
-  } else if (sectionType == "education") {
+  } else if (sectionType === "education") {
     placeHolders = ["Degree", "Date", "School"];
     nameValues = ["degree", "date", "school"];
   }

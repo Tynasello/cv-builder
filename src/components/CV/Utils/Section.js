@@ -1,6 +1,6 @@
 /*--------------------------------------------------------------*/
 
-import React, { useState } from "react";
+import React from "react";
 import styled, { css } from "styled-components";
 
 /*--------------------------------------------------------------*/
@@ -40,7 +40,7 @@ const Content = styled.div`
 
   /* Styling for container of skill elements */
   ${(props) =>
-    props.content == "skills" &&
+    props.content === "skills" &&
     css`
       display: flex;
       flex-wrap: wrap;
