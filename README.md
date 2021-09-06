@@ -1,6 +1,7 @@
 # CV Builder
 
 A React web application to create your own CV / resume.
+Live Demo -> [https://tynasello.github.io/cv-builder](https://tynasello.github.io/cv-builder)
 
 ## Overview
 
