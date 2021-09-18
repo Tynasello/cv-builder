@@ -1,6 +1,6 @@
 # CV Builder
 
-A React web application to create your own CV / resume.
+A React web application to create your own CV/resumé.
 
 Live Demo -> [https://tynasello.github.io/cv-builder](https://tynasello.github.io/cv-builder)
 
@@ -10,19 +10,19 @@ Live Demo -> [https://tynasello.github.io/cv-builder](https://tynasello.github.i
 
 ### How to use
 
-To use this application fill out the form on the left hand side of the page with personal values such as your name, profile picture, work experience, etc. The CV on the right hand side of the page will synchronously update as you type.
+To use this application fill out the form on the left-hand side of the page with personal values such as your name, profile picture, work experience, etc. The CV on the right-hand side of the page will synchronously update as you type.
 
 Close to the bottom of the form you can find two buttons labeled 'Display Empty CV' and 'Display Example CV' which clear the CV and display an example CV, respectively.
 
-Main sections of the CV include a personal description, contact section, education section, skills education, work experience section, and projects section.
+The main sections of the CV include a personal description, contact section, education section, skills education, work experience section, and projects section.
 
 To add and remove subsections of a section, press the green 'add' and red 'remove' buttons respectively.
 
-When adding to the skills section, seperate each infividual skills by a comma like so: Unity,C#,JavaScript. This ensures the addition of the skill element styling to each skill.
+When adding to the skills section, separate each individual skill by a comma like so: Unity, C#, JavaScript. This ensures the addition of the skill element styling to each skill.
 
 ### Exporting CV as PDF
 
-To save your own CV as a PDF, use the 'Export as PDF' button near the bottom of the form. The react-to-print package was leveraged to allow the exportation of the CV component to PDF.
+To save your CV as a PDF, use the 'Export as PDF' button near the bottom of the form. The react-to-print package was leveraged to allow the exportation of the CV component to PDF.
 
 ### Choosing CV Colors
 
